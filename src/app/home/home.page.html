@@ -1,20 +1,35 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-menu contentId="main-content" >
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title>Menu Content</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-content class="ion-padding" >
+    <p>Music</p>
+    <p>Art</p>
+    <p>Concert</p>
+    <p>Meetups</p>
+    <p>Festivals</p>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content" >
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+<img src="../../assets/imagecover.webp" >
+
+  <h1 class="titlecolour">This is Ireland</h1>
+  <h1 class="titlecolour">Check out what’s on in Ireland, stay up to date with the latest</h1>
+  <h1 class="titlecolour">events and read our guides to nightlife, theatre, festivals and more in Ireland.</h1>
+
+  <hr>
+  <hr>
+
+    <ion-content class="ion-padding"> Tap the button in the toolbar to open the menu. </ion-content>
