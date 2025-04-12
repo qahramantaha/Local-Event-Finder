@@ -1,35 +1,66 @@
-<ion-menu contentId="main-content" >
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu Content</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content class="ion-padding" >
-    <p>Music</p>
-    <p>Art</p>
-    <p>Concert</p>
-    <p>Meetups</p>
-    <p>Festivals</p>
-  </ion-content>
-</ion-menu>
-<div class="ion-page" id="main-content" >
-  <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</div>
-
+<ion-content>
 <img src="../../assets/imagecover.webp" >
 
   <h1 class="titlecolour">This is Ireland</h1>
-  <h1 class="titlecolour">Check out what’s on in Ireland, stay up to date with the latest</h1>
-  <h1 class="titlecolour">events and read our guides to nightlife, theatre, festivals and more in Ireland.</h1>
+  <h1 class="titlecolour">Check out what’s on in the World, stay up to date with the latest</h1>
+  <h1 class="titlecolour">events and read our guides to nightlife, theatre, festivals and more all around the World.</h1>
+  <h3>Sort By:<ion-button id="sortbybutton" [routerLink]="['/germany']">Germany</ion-button>
+   
+    <ion-button id="sortbybutton"  [routerLink]="['/portugal']">Portugal</ion-button>
+    <ion-button id="sortbybutton" [routerLink]="['/austria']">Austria</ion-button>
+    <ion-button id="sortbybutton" >Wishlist</ion-button></h3>
+  
+  <ion-list>
+    <ion-radio-group  >
+    <ion-item >
+      <ion-label>
+        <h1>{{events[0].nameParty}}</h1>
+       <p>Location: {{events[0].nameCountry}},</p>
+       <p>Start Date: {{events[0].dateStart}},</p>
+       <p>End Date: {{events[0].dateEnd}}</p></ion-label>
+      <ion-radio value="RaveAmMittwoch" slot="end"></ion-radio>
+    </ion-item>
+    <ion-item >
 
-  <hr>
-  <hr>
 
-    <ion-content class="ion-padding"> Tap the button in the toolbar to open the menu. </ion-content>
+        <ion-label>
+          <h1>{{events[1].nameParty}}</h1>
+          <p>Location: {{events[1].nameCountry}},</p>
+       <p>Start Date: {{events[1].dateStart}},</p>
+       <p>End Date: {{events[1].dateEnd}}</p></ion-label>
+        <ion-radio value="Paradise" slot="end"></ion-radio>
+      </ion-item>
+      <ion-item >
+
+      <ion-label>
+        <h1>{{events[2].nameParty}} </h1>
+        <p>Location: {{events[2].nameCountry}},</p>
+        <p>Start Date: {{events[2].dateStart}},</p>
+        <p>End Date: {{events[2].dateEnd}}</p></ion-label>
+      <ion-radio value="MotherShip4" slot="end"></ion-radio>
+    </ion-item>
+    <ion-item >
+      
+      <ion-label> 
+        <h1>{{events[3].nameParty}}</h1>
+        <p>Location: {{events[3].nameCountry}},</p>
+        <p>Start Date: {{events[3].dateStart}},</p>
+        <p>End Date: {{events[3].dateEnd}}</p></ion-label>
+      <ion-radio value="Klan" slot="end"></ion-radio>
+    </ion-item>
+    <ion-item >
+      <ion-label>
+        <h1> {{events[4].nameParty}}</h1>
+        <p>Location: {{events[4].nameCountry}},</p>
+        <p>Start Date: {{events[4].dateStart}},</p>
+        <p>End Date: {{events[4].dateEnd}}</p></ion-label>
+      <ion-radio value="UFO" slot="end"></ion-radio>
+    </ion-item>
+
+   
+    
+  </ion-radio-group>
+  </ion-list>
+  
+</ion-content>
+

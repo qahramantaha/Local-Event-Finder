@@ -1,0 +1,33 @@
+<ion-content>
+  <img src="../../assets/imagecover.webp" >
+  
+    <h1 class="titlecolour">This is Ireland</h1>
+    <h1 class="titlecolour">Check out what’s on in the World, stay up to date with the latest</h1>
+    <h1 class="titlecolour">events and read our guides to nightlife, theatre, festivals and more all around the World.</h1>
+    <h3>Sort By:<ion-button id="sortbybutton">Germany</ion-button><ion-button id="sortbybutton">Portugal</ion-button><ion-button id="sortbybutton">Austria</ion-button><ion-button id="sortbybutton">Wishlist</ion-button></h3>
+    
+    <ion-list>
+      <ion-radio-group>
+      <ion-item >
+          <ion-label>
+            <h1>{{events[1].nameParty}}</h1>
+            <p>Location: {{events[1].nameCountry}},</p>
+         <p>Start Date: {{events[1].dateStart}},</p>
+         <p>End Date: {{events[1].dateEnd}}</p></ion-label>
+          <ion-radio value="Paradise" slot="end"></ion-radio>
+        </ion-item>
+        <ion-item >
+  
+        <ion-label>
+          <h1>{{events[2].nameParty}} </h1>
+          <p>Location: {{events[2].nameCountry}},</p>
+          <p>Start Date: {{events[2].dateStart}},</p>
+          <p>End Date: {{events[2].dateEnd}}</p></ion-label>
+        <ion-radio value="MotherShip4" slot="end"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+    </ion-list>
+    
+  </ion-content>
+  
+  

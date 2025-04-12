@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { IonContent, IonButton, IonList, IonRadioGroup, IonRadio, IonItem, IonLabel } from '@ionic/angular/standalone';
 import { ServiceService } from '../service.service';
-import { RouterLink } from '@angular/router';
+
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
-  imports: [ RouterLink, IonContent, IonButton, IonList, IonRadioGroup, IonRadio, IonItem, IonLabel],
+  selector: 'app-austria',
+  templateUrl: './austria.page.html',
+  styleUrls: ['./austria.page.scss'],
+  standalone: true,
+  imports: [FormsModule, CommonModule, IonContent, IonButton, IonList, IonRadioGroup, IonRadio, IonItem, IonLabel],
 })
-export class HomePage implements OnInit {
+export class AustriaPage implements OnInit {
 
   events:any[] = [];
-  
 
-  constructor(private serviceservice:ServiceService) {}
-
+  constructor(private serviceservice:ServiceService, private storage:Storage) {}
 
   ngOnInit(): void {
     
@@ -26,10 +27,4 @@ export class HomePage implements OnInit {
 
     
   }
-
-
-  
- 
-
- 
 }

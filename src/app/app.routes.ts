@@ -10,4 +10,16 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {
+    path: 'germany',
+    loadComponent: () => import('./germany/germany.page').then( m => m.GermanyPage)
+  },
+  {
+    path: 'portugal',
+    loadComponent: () => import('./portugal/portugal.page').then( m => m.PortugalPage)
+  },
+  {
+    path: 'austria',
+    loadComponent: () => import('./austria/austria.page').then( m => m.AustriaPage)
+  },
 ];
