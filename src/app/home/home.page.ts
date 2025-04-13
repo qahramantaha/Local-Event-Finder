@@ -1,19 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { IonContent, IonButton, IonList, IonRadioGroup, IonRadio, IonItem, IonLabel } from '@ionic/angular/standalone';
+import { IonContent, IonButton, IonList, IonRadioGroup, IonRadio, IonItem, IonLabel, IonIcon  } from '@ionic/angular/standalone';
 import { ServiceService } from '../service.service';
 import { RouterLink } from '@angular/router';
+import { Storage } from '@ionic/storage-angular';
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { RouterOutlet } from '@angular/router';
+import { heartCircleOutline } from 'ionicons/icons';
+import { addIcons } from 'ionicons';
+import { logoInstagram } from 'ionicons/icons';
+import { logoFacebook } from 'ionicons/icons';
+import { logoSnapchat } from 'ionicons/icons';
+import { IonActionSheet } from '@ionic/angular/standalone';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [ RouterLink, IonContent, IonButton, IonList, IonRadioGroup, IonRadio, IonItem, IonLabel],
+  imports: [ IonActionSheet, RouterOutlet, FormsModule, RouterLink, IonContent, IonButton, IonList, IonRadioGroup, IonRadio, IonItem, IonLabel, IonIcon ],
 })
 export class HomePage implements OnInit {
 
   events:any[] = [];
-  
-
-  constructor(private serviceservice:ServiceService) {}
+  status:string="";
+  name:string="";
+  constructor(private serviceservice:ServiceService, private storage:Storage, private router:Router) {
+    addIcons({ heartCircleOutline, logoInstagram, logoFacebook, logoSnapchat })
+  }
 
 
   ngOnInit(): void {
@@ -27,9 +40,36 @@ export class HomePage implements OnInit {
     
   }
 
+  //button to save data to storage and navigate back to home page
+  async onButtonClick() {
+   
+    await this.storage.create();
+    await this.storage.set('status', this.status);
+    this.router.navigateByUrl('/wishlist');
+  }
 
-  
- 
+  public actionSheetButtons = [
+    {
+      text: 'Follow',
+      role: 'follow',
+      data: {
+        action: 'Follow',
+      },
+    },
+    {
+      text: 'Share',
+      data: {
+        action: 'share',
+      },
+    },
+    {
+      text: 'Cancel',
+      role: 'cancel',
+      data: {
+        action: 'cancel',
+      },
+    },
+  ];
 
  
 }

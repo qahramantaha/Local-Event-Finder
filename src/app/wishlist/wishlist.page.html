@@ -1,0 +1,13 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Update wishlist Page
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- get myStatus and redirect to status page when button click-->
+    <h3>Your latest wishlist is: {{ myStatus }}</h3>
+   <ion-button [routerLink]="['/home']">UPDATE WISHLIST</ion-button>
+</ion-content>

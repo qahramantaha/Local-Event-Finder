@@ -22,4 +22,8 @@ export const routes: Routes = [
     path: 'austria',
     loadComponent: () => import('./austria/austria.page').then( m => m.AustriaPage)
   },
+  {
+    path: 'wishlist',
+    loadComponent: () => import('./wishlist/wishlist.page').then( m => m.WishlistPage)
+  },
 ];
