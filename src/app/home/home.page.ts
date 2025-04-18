@@ -5,19 +5,18 @@ import { RouterLink } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
 import { heartCircleOutline } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { logoInstagram } from 'ionicons/icons';
 import { logoFacebook } from 'ionicons/icons';
 import { logoSnapchat } from 'ionicons/icons';
 import { IonActionSheet } from '@ionic/angular/standalone';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [ IonActionSheet, RouterOutlet, FormsModule, RouterLink, IonContent, IonButton, IonList, IonRadioGroup, IonRadio, IonItem, IonLabel, IonIcon ],
+  imports: [ CommonModule, IonActionSheet, FormsModule, RouterLink, IonContent, IonButton, IonList, IonRadioGroup, IonRadio, IonItem, IonLabel, IonIcon ],
 })
 export class HomePage implements OnInit {
 

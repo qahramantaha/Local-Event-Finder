@@ -5,7 +5,6 @@ import { RouterLink } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
 import { heartCircleOutline } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { logoInstagram } from 'ionicons/icons';
@@ -17,7 +16,8 @@ import { IonActionSheet } from '@ionic/angular/standalone';
   selector: 'app-germany',
   templateUrl: './germany.page.html',
   styleUrls: ['./germany.page.scss'],
-  imports: [ IonActionSheet, RouterOutlet, FormsModule, RouterLink, IonContent, IonButton, IonList, IonRadioGroup, IonRadio, IonItem, IonLabel, IonIcon ],
+  standalone: true,
+  imports: [ IonActionSheet, FormsModule, RouterLink, IonContent, IonButton, IonList, IonRadioGroup, IonRadio, IonItem, IonLabel, IonIcon ],
 })
 export class GermanyPage implements OnInit {
 
