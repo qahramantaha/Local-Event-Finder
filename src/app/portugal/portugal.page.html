@@ -6,80 +6,45 @@
     <h1 class="titlecolour">Check out what’s on in the World, stay up to date with the latest</h1>
     <h1 class="titlecolour">events and read our guides to nightlife, theatre, festivals and more all around the World.</h1>
   
-    <h3>Sort By:
-    
-      <ion-button id="sortbybutton" [routerLink]="['/germany']">{{events[0].nameCountry}}</ion-button>
-      <ion-button id="sortbybutton" [routerLink]="['/portugal']">{{events[1].nameCountry}}</ion-button>
-      <ion-button id="sortbybutton" [routerLink]="['/austria']" >{{events[2].nameCountry}}</ion-button>
-      <ion-button id="sortbybutton" [routerLink]="['/wishlist']">Wishlist</ion-button></h3>
-      <p>Sorted by {{events[1].nameCountry}}</p>
+    <h3>Sort By:</h3>
+              <!--routing buttons-->
+              <ion-button id="sortbybutton" [routerLink]="['/home']">Home</ion-button>
+              <ion-button id="sortbybutton" [routerLink]="['/germany']">germany</ion-button>
+              <ion-button id="sortbybutton" [routerLink]="['/portugal']">portugal</ion-button>
+              <ion-button id="sortbybutton" [routerLink]="['/austria']" >austria</ion-button>
+              <ion-button id="sortbybutton" [routerLink]="['/wishlist']">Wishlist</ion-button>
+      <p>Sorted by Portugal</p>
       <p id="fav">Enter you favouriate event you have been too</p>
       <p id="fav"><input [(ngModel)] = "name"></p>
       <h1 id="fav"><ion-icon name="heart-circle-outline" size="large" ></ion-icon>
         {{name}}<ion-icon name="heart-circle-outline" size="large"></ion-icon></h1>
         <h1 id="fav">Every Week there are new events going on around the world so you can and see all the new events that are going on in the world</h1>
       </div>
-    <ion-list>
-      
-      <ion-radio-group  >
-      <ion-item >
-        <ion-label class="labalcolor">
-          <h1>{{events[0].nameParty}}</h1>
-         <p>Location: {{events[0].nameCountry}},</p>
-         <p>Start Date: {{events[0].dateStart}},</p>
-         <p>End Date: {{events[0].dateEnd}}</p></ion-label>
-        <ion-radio value="event0" slot="end"></ion-radio>
-      </ion-item>
-      <ion-item >
-  
-  
-          <ion-label class="labalcolor">
-            <h1>{{events[1].nameParty}}</h1>
-            <p>Location: {{events[1].nameCountry}},</p>
-         <p>Start Date: {{events[1].dateStart}},</p>
-         <p>End Date: {{events[1].dateEnd}}</p></ion-label>
-          <ion-radio value="event1" slot="end"></ion-radio>
-        </ion-item>
-        <ion-item >
-  
-        <ion-label class="labalcolor">
-          <h1>{{events[2].nameParty}} </h1>
-          <p>Location: {{events[2].nameCountry}},</p>
-          <p>Start Date: {{events[2].dateStart}},</p>
-          <p>End Date: {{events[2].dateEnd}}</p></ion-label>
-        <ion-radio value="event2" slot="end"></ion-radio>
-      </ion-item>
-      <ion-item >
-        
-        <ion-label class="labalcolor"> 
-          <h1>{{events[3].nameParty}}</h1>
-          <p>Location: {{events[3].nameCountry}},</p>
-          <p>Start Date: {{events[3].dateStart}},</p>
-          <p>End Date: {{events[3].dateEnd}}</p></ion-label>
-        <ion-radio value="event3" slot="end"></ion-radio>
-      </ion-item>
-      <ion-item >
-        <ion-label class="labalcolor">
-          <h1> {{events[4].nameParty}}</h1>
-          <p>Location: {{events[4].nameCountry}},</p>
-          <p>Start Date: {{events[4].dateStart}},</p>
-          <p>End Date: {{events[4].dateEnd}}</p></ion-label>
-        <ion-radio value="event4" slot="end"></ion-radio>
-      </ion-item>
-  
-     
-      
-    </ion-radio-group>
-    </ion-list>
+      <ion-list>
+        <ion-radio-group>
+          <!-- Loop only through portugal events -->
+          <ion-item *ngFor="let event of portugalEvents; let i = index">
+            <ion-label class="labalcolor">
+              <h1>{{ event.nameParty }}</h1>
+              <p>Location: {{ event.nameCountry }}</p>
+              <p>Start Date: {{ event.dateStart }}</p>
+              <p>End Date: {{ event.dateEnd }}</p>
+            </ion-label>
+            <ion-radio [value]="'event' + i" slot="end"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
     <div class="divcolor">
-  
+          <!--button to add to wishlist-->
     <ion-button (click)="onButtonClick()">ADD TO WISHLIST</ion-button>
     <h1>Take your event pictures and make sure to send it to us here on our socials!!</h1>
+              <!--soical links-->
     <p id="fav"><ion-icon name="logo-instagram" size="large"></ion-icon><a href="https://www.instagram.com/">Instagram</a></p>
     <p id="fav"><ion-icon name="logo-instagram" size="large"></ion-icon><a href="https://www.facebook.com/">Facebook</a></p>
     <p id="fav"><ion-icon name="logo-instagram" size="large"></ion-icon><a href="https://www.snapchat.com/">Snapchat</a></p>
   
     <p>Click here to follow and share!!</p>
+              <!--pop up button-->
     <ion-button id="open-action-sheet">Follow & Share</ion-button>
   <ion-action-sheet trigger="open-action-sheet" header="Actions" [buttons]="actionSheetButtons"></ion-action-sheet>
   </div>

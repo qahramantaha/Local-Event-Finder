@@ -1,3 +1,4 @@
+//imports
 import { Component, OnInit } from '@angular/core';
 import { IonContent, IonButton, IonList, IonRadioGroup, IonRadio, IonItem, IonLabel, IonIcon  } from '@ionic/angular/standalone';
 import { ServiceService } from '../service.service';
@@ -12,7 +13,11 @@ import { logoFacebook } from 'ionicons/icons';
 import { logoSnapchat } from 'ionicons/icons';
 import { IonActionSheet } from '@ionic/angular/standalone';
 import { CommonModule } from '@angular/common';
+//capacitor would not dowmload but here are the imports
+//import { Camera, CameraResultType } from '@capacitor/camera';
+
 @Component({
+  
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
@@ -20,19 +25,23 @@ import { CommonModule } from '@angular/common';
 })
 export class HomePage implements OnInit {
 
+  //variables
   events:any[] = [];
   status:string="";
   name:string="";
+   selectedEvent:any="";
+  //constructor - service for data - storage for sotring data - router for routing/navigation
+      //add icons to the page
   constructor(private serviceservice:ServiceService, private storage:Storage, private router:Router) {
     addIcons({ heartCircleOutline, logoInstagram, logoFacebook, logoSnapchat })
   }
 
 
+  //get the event data from the file 
   ngOnInit(): void {
     
     this.serviceservice.getEventData().subscribe(
        (data) => {
-      console.log('API Response:', data); // Debug log
       this.events = data.partylist;
     });
 
@@ -41,12 +50,16 @@ export class HomePage implements OnInit {
 
   //button to save data to storage and navigate back to home page
   async onButtonClick() {
-   
+    console.log("status " + this.status);
+    //sotring locally
     await this.storage.create();
     await this.storage.set('status', this.status);
-    this.router.navigateByUrl('/wishlist');
+    this.router.navigateByUrl('/home');
   }
 
+  // This defines the buttons for an (popup menu)
+// Each button has text, an optional role,
+// and data that gets passed when clicked.
   public actionSheetButtons = [
     {
       text: 'Follow',
