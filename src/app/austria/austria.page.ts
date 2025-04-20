@@ -44,13 +44,18 @@ export class AustriaPage implements OnInit {
     
   }
 
-  //button to save data to storage and navigate back to home page
-  async onButtonClick() {
-   
-    await this.storage.create();
-    await this.storage.set('status', this.status);
-    this.router.navigateByUrl('/wishlist');
-  }
+   //button to save data to storage and navigate back to home page
+async onButtonClick() {
+  console.log("Selected event index: " + this.status);
+  
+  const eventIndex = parseInt(this.status.replace('event', ''));
+    const selectedEvent = this.events[eventIndex];
+  
+  await this.storage.create();
+  await this.storage.set('selectedEvent', selectedEvent);
+  
+  this.router.navigateByUrl('/wishlist');
+}
 
   // This defines the buttons for an (popup menu)
 // Each button has text, an optional role,

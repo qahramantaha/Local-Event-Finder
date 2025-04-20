@@ -13,8 +13,7 @@ import { logoFacebook } from 'ionicons/icons';
 import { logoSnapchat } from 'ionicons/icons';
 import { IonActionSheet } from '@ionic/angular/standalone';
 import { CommonModule } from '@angular/common';
-//capacitor would not dowmload but here are the imports
-//import { Camera, CameraResultType } from '@capacitor/camera';
+
 
 @Component({
   
@@ -49,13 +48,17 @@ export class HomePage implements OnInit {
   }
 
   //button to save data to storage and navigate back to home page
-  async onButtonClick() {
-    console.log("status " + this.status);
-    //sotring locally
-    await this.storage.create();
-    await this.storage.set('status', this.status);
-    this.router.navigateByUrl('/home');
-  }
+async onButtonClick() {
+  console.log("Selected event index: " + this.status);
+  
+  const eventIndex = parseInt(this.status.replace('event', ''));
+    const selectedEvent = this.events[eventIndex];
+  
+  await this.storage.create();
+  await this.storage.set('selectedEvent', selectedEvent);
+  
+  this.router.navigateByUrl('/wishlist');
+}
 
   // This defines the buttons for an (popup menu)
 // Each button has text, an optional role,

@@ -21,7 +21,7 @@
         <h1 id="fav">Every Week there are new events going on around the world so you can and see all the new events that are going on in the world</h1>
       </div>
       <ion-list>
-        <ion-radio-group>
+        <ion-radio-group [(ngModel)]="status">
           <!-- Loop only through Austria events -->
           <ion-item *ngFor="let event of austriaEvents; let i = index">
             <ion-label class="labalcolor">
@@ -40,10 +40,10 @@
 
     <h1>Take your event pictures and make sure to send it to us here on our socials!!</h1>
       <!--soical links-->
-    <p id="fav"><ion-icon name="logo-instagram" size="large"></ion-icon><a href="https://www.instagram.com/">Instagram</a></p>
-    <p id="fav"><ion-icon name="logo-instagram" size="large"></ion-icon><a href="https://www.facebook.com/">Facebook</a></p>
-    <p id="fav"><ion-icon name="logo-instagram" size="large"></ion-icon><a href="https://www.snapchat.com/">Snapchat</a></p>
-  
+      <p id="fav"><ion-icon name="logo-instagram" size="large"></ion-icon><a href="https://www.instagram.com/">Instagram</a></p>
+      <p id="fav"><ion-icon name="logo-facebook" size="large"></ion-icon><a href="https://www.facebook.com/">Facebook</a></p>
+      <p id="fav"><ion-icon name="logo-snapchat" size="large"></ion-icon><a href="https://www.snapchat.com/">Snapchat</a></p>
+    
     <p>Click here to follow and share!!</p>
       <!--pop up button-->
     <ion-button id="open-action-sheet">Follow & Share</ion-button>

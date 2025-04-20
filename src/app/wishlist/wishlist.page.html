@@ -1,18 +1,35 @@
 <ion-content>
   <div>
     <h2>Your Saved Event</h2>
-    <ion-card>
+    <h1 id="center">Here you can save your favouriate event</h1>
+    <ion-card *ngIf="selectedEvent">
       <ion-card-header>
-        <ion-card-title>Your latest status: {{ myStatus }}
-        </ion-card-title>
+        <ion-card-title>{{ selectedEvent.nameParty }}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-       
+        <p>Location: {{ selectedEvent.nameCountry }}</p>
+        <p>Start Date: {{ selectedEvent.dateStart }}</p>
+        <p>End Date: {{ selectedEvent.dateEnd }}</p>
       </ion-card-content>
     </ion-card>
-  </div>
-
- 
+    <ion-card *ngIf="!selectedEvent">
+      <ion-card-content>
+        No event selected yet.
+      </ion-card-content>
+    </ion-card>
     <ion-button [routerLink]="['/home']">Browse Events</ion-button>
+  </div>
+<h2 id="center">Upload some pictures of the event you have selected and send them here to us here or out socials!!</h2>
+
+<ion-button expand="block" (click)="takePicture()">
+  <ion-icon name="camera" slot="start"></ion-icon>
+  Upload Picture
+</ion-button>
+<img src="../../assets/EventsColorful.png" >
+
+<p id="center"><ion-icon name="logo-instagram" size="large"></ion-icon><a href="https://www.instagram.com/">Instagram</a></p>
+<p id="center"><ion-icon name="logo-facebook" size="large"></ion-icon><a href="https://www.facebook.com/">Facebook</a></p>
+<p id="center"><ion-icon name="logo-snapchat" size="large"></ion-icon><a href="https://www.snapchat.com/">Snapchat</a></p>
+
   
 </ion-content>
