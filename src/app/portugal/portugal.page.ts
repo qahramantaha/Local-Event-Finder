@@ -85,7 +85,7 @@ async onButtonClick() {
 
    // Filter events to only show portugal
    get portugalEvents() {
-    return this.events.filter(event => event.nameCountry === 'ortugal');
+    return this.events.filter(event => event.nameCountry === 'Portugal');
   }
 
 

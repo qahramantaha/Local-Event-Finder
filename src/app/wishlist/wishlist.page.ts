@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { IonContent,IonCard, IonCardHeader,IonButton,IonIcon, IonCardTitle, IonCardContent} from '@ionic/angular/standalone';
 import { Storage } from '@ionic/storage-angular';
 import { RouterLink } from '@angular/router';
-import { PhotoService } from '../services/photo.service';
 import { camera } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { Camera, CameraResultType } from '@capacitor/camera';
@@ -21,37 +20,34 @@ import { logoSnapchat } from 'ionicons/icons';
   imports: [ RouterLink, IonContent, IonCard,IonButton,IonIcon, IonCardHeader,IonCardTitle, IonCardContent, CommonModule, FormsModule]
 })
 export class WishlistPage implements OnInit {
+  //variables
   myStatus:string[] = [];
   photo: string | undefined;
-
-  myWishlist:any = null;
+  selectedEvent: any = null;
   //constructor - hold storage
-  constructor(private storage:Storage, public photoService: PhotoService) { 
+  constructor(private storage:Storage) { 
     addIcons({ camera, logoFacebook, logoInstagram, logoSnapchat});
   }
 
   ngOnInit() {
   }
 
-selectedEvent: any = null;
-
+//function to get storage data
 async ionViewWillEnter() {
   await this.storage.create();
   this.selectedEvent = await this.storage.get('selectedEvent');
 }
 
+//function to get photo
 async takePicture() {
-  try {
+  
     const image = await Camera.getPhoto({
       quality: 90,
       allowEditing: false,
       resultType: CameraResultType.Uri
     });
     
-    this.photo = image.webPath;
-  } catch (error) {
-    console.log('Camera error:', error);
-  }
+  
 }
 
 }

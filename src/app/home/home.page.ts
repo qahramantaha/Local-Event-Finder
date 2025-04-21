@@ -28,7 +28,6 @@ export class HomePage implements OnInit {
   events:any[] = [];
   status:string="";
   name:string="";
-   selectedEvent:any="";
   //constructor - service for data - storage for sotring data - router for routing/navigation
       //add icons to the page
   constructor(private serviceservice:ServiceService, private storage:Storage, private router:Router) {

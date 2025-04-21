@@ -27,7 +27,6 @@ export class GermanyPage implements OnInit {
   events:any[] = [];
   status:string="";
   name:string="";
-  currentCountry: string = '';
 
    //constructor - service for data - storage for sotring data - router for routing/navigation
       //add icons to the page

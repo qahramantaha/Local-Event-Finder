@@ -4,6 +4,7 @@
     <h1 id="center">Here you can save your favouriate event</h1>
     <ion-card *ngIf="selectedEvent">
       <ion-card-header>
+        <!--saved storage appears here-->
         <ion-card-title>{{ selectedEvent.nameParty }}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
@@ -11,16 +12,18 @@
         <p>Start Date: {{ selectedEvent.dateStart }}</p>
         <p>End Date: {{ selectedEvent.dateEnd }}</p>
       </ion-card-content>
+      <!--if no item is selected show no evnt selected yet option-->
     </ion-card>
     <ion-card *ngIf="!selectedEvent">
       <ion-card-content>
         No event selected yet.
       </ion-card-content>
     </ion-card>
+    <!--button to go back home-->
     <ion-button [routerLink]="['/home']">Browse Events</ion-button>
   </div>
 <h2 id="center">Upload some pictures of the event you have selected and send them here to us here or out socials!!</h2>
-
+<!--Camera upload native/capacitor-->
 <ion-button expand="block" (click)="takePicture()">
   <ion-icon name="camera" slot="start"></ion-icon>
   Upload Picture
